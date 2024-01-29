@@ -1,0 +1,41 @@
+<form action="/" method="post">
+
+    <label for="startingLocation">Starting Location:</label>
+    <select id="startingLocation" name="startingLocation" class="js-select2" onFocus="this.select()">
+      <option value="" disabled selected>Select a starting location..</option>
+      <option value="53.470119,-2.267386">Cornbrook</option>
+      <option value="53.48312020333411,-2.334432062899018">Eccles</option>
+    </select>
+
+    <label for="destinationLocation">Destination:</label>
+    <select id="destinationLocation" name="destinationLocation" class="js-select2" onFocus="this.select()">
+      <option value="" disabled selected>Select your destination</option>
+      <option value="53.4617,-2.277319">Trafford Bar</option>
+    </select>
+
+    <br>
+    <br>
+    <button type="submit">Go</button>
+
+    <script>
+        $(document).ready(function () {
+          $('.js-select2').select2();
+        });
+    </script>
+
+</form>
+
+<!-- <label for="origins">Origin:</label>
+<input list="origins" id="origins" name="origins"/>
+
+<datalist id="origins"> 
+    <option value="53.470119,-2.267386">Cornbrook</option> 
+    <option value="53.48312020333411,-2.334432062899018">Eccles</option> 
+</datalist>
+
+<label for="destination">Destination:</label> 
+<input list="origin" id="origin" name="origin"/>
+
+<datalist name="destination" id="destination"> 
+    <option value="53.4617,-2.277319">Trafford Bar</option> 
+</datalist> -->
