@@ -19,6 +19,10 @@ app.get('/', async (req, res) => {
   res.render('index.ejs');
 });
 
+app.get('/search', async (req, res) => {
+  res.render('search.ejs');
+});
+
 app.post('/', async (req, res) => {
   try {
     console.log('Received POST request');
@@ -78,6 +82,7 @@ app.post('/', async (req, res) => {
   }
 });
 
+
 app.listen(port, function () {
-  console.log(`Sever is running on ${port}. Press CTRL + C to shutdown.`);
+  console.log(`Sever is running on ${port}. Press CTRL + C to shutdown. http://localhost:3000/`);
 });
