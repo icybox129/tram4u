@@ -8,12 +8,20 @@
             </div>
             <div>
                 <%- include("dropdown") -%>
-                <div class="results">
-                    <h1>Departure Time: <%= firstDepart %></h1>
-                    <h1>Arrival Time: <%= firstArrival %></h1>
-                    <h1>2nd Departure Time: <%= secondDepart %></h1>
-                    <h1>2nd Arrival Time: <%= secondArrival %></h1>
-                </div>
+                <% if (locals.secondDepart !== null) { %>
+                    <div class="results">
+                        <h1 style="color:<%= firstColour %>;">Departure Time: <%= firstDepart %></h1>
+                        <h1 style="color:<%= firstColour %>;">Arrival Time: <%= firstArrival %></h1>
+                        <h1 style="color:<%= secondColour %>;">2nd Departure Time: <%= secondDepart %></h1>
+                        <h1 style="color:<%= secondColour %>;">2nd Arrival Time: <%= secondArrival %></h1>
+                    </div>
+  
+                <% } else { %>
+                    <div class="results">
+                        <h1 style="color:<%= firstColour %>;">Departure Time: <%= firstDepart %></h1>
+                        <h1 style="color:<%= firstColour %>;">Arrival Time: <%= firstArrival %></h1>
+                    </div>
+                <% } %>
             </div>
         </div>
     </div>
