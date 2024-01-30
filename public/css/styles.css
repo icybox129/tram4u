@@ -25,27 +25,27 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   overflow: hidden;
 }
 
+/* Search page */
 label {
-  display: block;
-  margin-bottom: 8px;
   font-weight: bold;
+  width: 50px;
+  padding-left: 10px;
+  color: #141F23;
 }
 
+/* Search page */
 select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
+  width: 225px;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
+/* Search page */
 button {
-  background-color: #ffdc44;
+  background-color: #141F23;
   color: #fff;
   padding: 10px 15px;
   border: none;
@@ -57,31 +57,21 @@ button {
   
 button:hover {
   background-color: #ffdc44;
-}
-
-.test {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.app {
-  background-color: #ccc;
+  border: #141F23 solid 1px;
+  color: #141F23;
+  font-weight: bold;
 }
 
 .container {
-  max-width: 900px;
-  height: calc(100vh - 3px);
+  max-width: 375px;
+  height: 100vh;
+  max-height: fit-content;
   margin: 0 auto;
   padding: 20px;
   background-color: #ffdc44;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  justify-content: center;
+  align-items: center;
 }
 
 footer {
@@ -89,10 +79,11 @@ footer {
   padding: 20px;
   color: white;
   text-align: center;
+  display: none;
 }
 
 .logo {
-  height: 400px;
+  height: 300px;
 }
 
 .logo-name {
@@ -102,46 +93,97 @@ footer {
 }
 
 .slogan {
-  font-size: 30px;
+  font-size: 23px;
   color: #ffffff;
   text-align: center;
-  padding: 50px 0;
+  padding: 10px 0;
+  font-style: italic;
+  padding-top: 20px;
 }
 
-.button1 {
+.start-button {
   font-size: 20px;
-  background-color: #141F23; /* Default background color */
-  color: #fff; /* Default text color */
-  border: 2px solid #141F23; /* Default border color */
+  background-color: #141F23;
+  color: #fff;
+  border: 2px solid #141F23;
   border-radius: 30px;
   padding: 10px 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition effect */
+  transition: background-color 0.3s ease;
   width: 100px;
+  margin-top: 75px;
 }
 
-.button1:hover {
-  background-color: #ffdc44; /* Yellow background color on hover */
-  color: #141F23; /* Black text color on hover */
+.start-button:hover {
+  background-color: #ffdc44;
+  color: #141F23;
 }
 
-/* Desktop layout using Flexbox */
-.container-flex {
+.top-container {
+  max-width: 375px;
+  height: 275px;
+  max-height: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffdc44;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 4px 2px -2px gray;;
 }
 
-.item {
-  flex: 1;
+.search-test {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 5px;
   margin: 10px;
 }
 
-/* Mobile layout using Flexbox */
-@media only screen and (max-width: 600px) {
+.top-logo {
+  display: flex;
+  align-items: center;
+}
+
+.top-logo img {
+  height: 125px;
+  padding-bottom: 10px;
+}
+
+.top-logo h1 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #141F23;
+}
+
+.top-button {
+  display: flex;
+  justify-content: center;
+}
+
+.background {
+  background-image: url('/images/manchester-road-map-test.png');
+  height: 100vh;
+  background-repeat: no-repeat;
+  max-width: 375px;
+  max-height: fit-content;
+  margin: 0 auto;
+}
+
+
+
+
+
+/* Desktop layout using Flexbox */
+@media only screen and (max-width: 1200px) {
   .container-flex {
     flex-direction: column;
     text-align: center;
+    justify-content: space-between;
   }
 
   .logo {

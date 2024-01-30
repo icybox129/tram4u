@@ -1,10 +1,21 @@
 <%- include("header") -%>
-    <div class="test">
-        <%- include("dropdown") -%>
-
-        <h1>Departure Time: <%= firstDepart %></h1>
-        <h1>Arrival Time: <%= firstArrival %></h1>
-        <h1>2nd Departure Time: <%= secondDepart %></h1>
-        <h1>2nd Arrival Time: <%= secondArrival %></h1>
+<div>
+    <div class="background">
+        <div class="top-container">
+            <div class="top-logo">
+                <img src="/images/tram4u-final.png" alt="tram4u logo">
+                <h1>Tram4U</h1>
+            </div>
+            <div>
+                <%- include("dropdown") -%>
+                <div class="results">
+                    <h1>Departure Time: <%= firstDepart %></h1>
+                    <h1>Arrival Time: <%= firstArrival %></h1>
+                    <h1>2nd Departure Time: <%= secondDepart %></h1>
+                    <h1>2nd Arrival Time: <%= secondArrival %></h1>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 <%- include("footer") -%>
