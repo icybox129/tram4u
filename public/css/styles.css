@@ -174,9 +174,103 @@ footer {
   margin: 0 auto;
 }
 
+.results-container {
+  height: 166px;
+  width: 100%;
+  max-width: 300px;
+  margin: 50px auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  /* grid-template-columns: 1fr 1fr 300px; */
+  /* grid-column-gap: 10px; */
+  outline: none;
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 36px;
+}
 
+.headsign {
+  border-bottom: #141F23 solid 1px;
+  background-color: #d6b41b;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+}
 
+.departure {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border-bottom: #141F23 solid 1px;
+  width: 100%;
+}
 
+.arrival {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.departure-station {
+  background-color: #d6b41b;
+  border-right: #141F23 solid 1px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 105px;
+  max-width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.arrival-station {
+  background-color: #d6b41b;
+  border-right: #141F23 solid 1px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 105px;
+  max-width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 0 0 20px;
+}
+
+.departure-station p, .arrival-station p {
+  margin: 0;
+  padding: 0;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.departure-time, .arrival-time {
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+  line-height: 25px;
+  width: 100%;
+  margin: 0 10px 0 10px;
+}
+
+.departure-time p, .arrival-time p {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 
 /* Desktop layout using Flexbox */
 @media only screen and (max-width: 1200px) {
