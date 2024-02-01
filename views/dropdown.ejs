@@ -1,27 +1,34 @@
 <form action="/" method="post">
-  <div class="search-test">
-    <label for="startingLocation">From:</label>
-    <select id="startingLocation" name="startingLocation" class="js-select2" onFocus="this.select()">
-      <option value="" disabled selected></option>
-      <option value="53.470119,-2.267386">Cornbrook</option>
-      <option value="53.48312020333411,-2.334432062899018">Eccles</option>
-      <option value="53.4617,-2.277319">Trafford Bar</option>
-
-    </select>
+  <div class="row">
+    <div class="column">
+      <div class="search-test">
+        <label for="startingLocation">From:</label>
+        <select id="startingLocation" name="startingLocation" class="js-select2" onFocus="this.select()">
+          <option value="" disabled selected></option>
+          <option value="53.470119,-2.267386">Cornbrook</option>
+          <option value="53.48312020333411,-2.334432062899018">Eccles</option>
+          <option value="53.4617,-2.277319">Trafford Bar</option>
+        </select>
+      </div>
+    
+      
+      <div class="search-test">
+        <label for="destinationLocation">To:</label>
+        <select id="destinationLocation" name="destinationLocation" class="js-select2" onFocus="this.select()">
+          <option value="" disabled selected></option>
+          <option value="53.470119,-2.267386">Cornbrook</option>
+          <option value="53.48312020333411,-2.334432062899018">Eccles</option>
+          <option value="53.4617,-2.277319">Trafford Bar</option>
+        </select>
+      </div>
+    </div>
+    <div class="top-button-small">
+      <button type="submit">Go</button>
+    </div>
+    <div class="top-button">
+      <button type="submit">Go</button>
+    </div>
   </div>
-  <div class="search-test">
-    <label for="destinationLocation">To:</label>
-    <select id="destinationLocation" name="destinationLocation" class="js-select2" onFocus="this.select()">
-      <option value="" disabled selected></option>
-      <option value="53.470119,-2.267386">Cornbrook</option>
-      <option value="53.48312020333411,-2.334432062899018">Eccles</option>
-      <option value="53.4617,-2.277319">Trafford Bar</option>
-    </select>
-  </div>
-  <div class="top-button">
-    <button type="submit">Go</button>
-  </div>
-
     <script>
         $(document).ready(function () {
           $('.js-select2').select2();

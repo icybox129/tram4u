@@ -30,24 +30,19 @@ app.post('/', async (req, res) => {
     const origin = req.body.startingLocation;
     
     const destination = req.body.destinationLocation;
-    console.log('Origin:', origin);
-    console.log('Destination:', destination);
+    
     
     const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${apiKey}&mode=transit&transit_mode=tram`;
     
     const travelData = await axios.get(url);
-    // console.log(travelData.data);
+    
     const urlCurrentTime = `https://timeapi.io/api/Time/current/zone?timeZone=Europe/London`;
     
     const currentTime = await axios.get(urlCurrentTime);
 
     const nick = currentTime.data.time;
-    console.log(nick)
-
-
 
     const stepsLength = travelData.data.routes[0].legs[0].steps.length;
-    console.log(stepsLength);
 
     let 
       firstDepartureTime = travelData.data.routes[0].legs[0].steps[0].transit_details.departure_time.text,
@@ -111,8 +106,6 @@ app.post('/', async (req, res) => {
       
 
     if (stepsLength > 1) {
-      console.log('Rendering 1st result.ejs');
-      console.log(firstColour, secondColour);
       
       res.render('result.ejs', {
         firstDepart: firstDepartureTime,
@@ -142,9 +135,6 @@ app.post('/', async (req, res) => {
       firstColour = travelData.data.routes[0].legs[0].steps[0].transit_details.line.color;
       firstLineName = travelData.data.routes[0].legs[0].steps[0].transit_details.line.short_name;
       firstDurationTime = travelData.data.routes[0].legs[0].steps[0].duration.text;
-      
-      console.log('Rendering 2nd result.ejs');
-      console.log(firstColour, secondColour);
       
       res.render('result.ejs', {
         firstDepart: firstDepartureTime,

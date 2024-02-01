@@ -31,7 +31,7 @@ body {
 /* Search page */
 label {
   font-weight: bold;
-  width: 50px;
+  /* width: 50px; */
   padding-left: 10px;
   color: #141F23;
 }
@@ -57,9 +57,13 @@ button {
   
 button:hover {
   background-color: #ffdc44;
-  border: #141F23 solid 1px;
+  outline: #141F23 solid 1px;
   color: #141F23;
   font-weight: bold;
+}
+
+.top-button-small {
+  display: none;
 }
 
 .container {
@@ -142,6 +146,8 @@ footer {
   border-radius: 15px;
   padding: 5px;
   margin: 10px;
+  width: auto;
+  justify-content: space-between;
 }
 
 .top-logo {
@@ -166,7 +172,7 @@ footer {
 }
 
 .background {
-  background-image: url('/images/manchester-road-map-test.png');
+  background-image: url('/images/manchester-map-newnew.png');
   height: 100vh;
   background-repeat: no-repeat;
   max-width: 375px;
@@ -272,7 +278,7 @@ footer {
   width: 100%;
 }
 
-/* Desktop layout using Flexbox */
+
 @media only screen and (max-width: 1200px) {
   .container-flex {
     flex-direction: column;
@@ -287,5 +293,50 @@ footer {
   .item {
     width: 100%;
     margin: 10px 0;
+  }
+}
+
+@media only screen and (max-height: 610px) {
+  .logo {
+    height: 250px;
+  }
+}
+
+@media only screen and (max-height: 665px) {
+  .top-logo{
+    height: 70px;
+  }
+
+  .top-container{
+    height: 180px;
+  }
+
+  .top-button {
+    display: none;
+  }
+
+  .top-button-small {
+    display: flex;
+    /* height: 70%; */
+    padding: 20px 0 20px 0;
+    /* display: none; */
+  }
+
+  .js-select2{
+    width: 85%;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    width: 100%;
   }
 }
