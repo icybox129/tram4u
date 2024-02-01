@@ -68,47 +68,49 @@ app.post('/', async (req, res) => {
       secondDurationTime = travelData.data.routes[0].legs[0].steps[stepsLength - 1].duration.text;
 
     // Assuming you have two time variables in HH:MM format
-    const time1 = nick;
-    const time2 = firstDepartureTime;
-    console.log(nick, time2)
+
+    const firstParsedTime = new Date(`2000-01-01 ${firstDepartureTime}`);
+    const firstFormattedTime = firstParsedTime.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })
  
     // Parse times using moment
-    const moment1 = moment(time1, 'HH:mm');
-    const moment2 = moment(time2, 'HH:mm');
+    const firstMoment1 = moment(nick, 'HH:mm');
+    const firstMoment2 = moment(firstFormattedTime, 'HH:mm');
   
     // Calculate the time difference in minutes
-    const timeDifferenceMinutes = moment2.diff(moment1, 'minutes');
+    const firstTimeDifferenceMinutes = firstMoment2.diff(firstMoment1, 'minutes');
   
-    let resultMessage;
+    let firstResultMessage;
   
-    if (timeDifferenceMinutes >= 60) {
-      const hours = Math.floor(timeDifferenceMinutes / 60);
-      const remainingMinutes = timeDifferenceMinutes % 60;
-      resultMessage = `${hours}h ${remainingMinutes} min`;
+    if (firstTimeDifferenceMinutes >= 60) {
+      const hours = Math.floor(firstTimeDifferenceMinutes / 60);
+      const remainingMinutes = firstTimeDifferenceMinutes % 60;
+      firstResultMessage = `${hours}h ${remainingMinutes} min`;
     } else {
-      resultMessage = `${timeDifferenceMinutes} min`;
-      console.log(resultMessage)
+      firstResultMessage = `${firstTimeDifferenceMinutes } min`;
+    }
+
+    const secondParsedTime = new Date(`2000-01-01 ${secondDepartureTime}`);
+    const secondFormattedTime = secondParsedTime.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })
+
+    // Parse times using moment
+    const secondMoment1 = moment(nick, 'HH:mm');
+    const secondMoment2 = moment(secondFormattedTime, 'HH:mm');
+  
+    // Calculate the time difference in minutes
+    const secondTimeDifferenceMinutes = secondMoment2.diff(secondMoment1, 'minutes');
+  
+    let secondResultMessage;
+  
+    if (secondTimeDifferenceMinutes >= 60) {
+      const hours = Math.floor(secondTimeDifferenceMinutes / 60);
+      const remainingMinutes = secondTimeDifferenceMinutes % 60;
+      secondResultMessage = `${hours}h ${remainingMinutes} min`;
+    } else {
+      secondResultMessage = `${secondTimeDifferenceMinutes} min`;
     }
       
 
     if (stepsLength > 1) {
-      // firstDepartureTime = travelData.data.routes[0].legs[0].steps[0].transit_details.departure_time.text;
-      // firstArrivalTime = travelData.data.routes[0].legs[0].steps[0].transit_details.arrival_time.text;
-      // secondDepartureTime = travelData.data.routes[0].legs[0].steps[stepsLength - 1].transit_details.departure_time.text;
-      // secondArrivalTime = travelData.data.routes[0].legs[0].steps[stepsLength - 1].transit_details.arrival_time.text;
-      // firstColour = travelData.data.routes[0].legs[0].steps[0].transit_details.line.color;
-      // secondColour = travelData.data.routes[0].legs[0].steps[stepsLength - 1].transit_details.line.color;
-      // firstHeadSign = travelData.data.routes[0].legs[0].steps[0].transit_details.headsign;
-      // firstDepartureName = travelData.data.routes[0].legs[0].steps[0].transit_details.departure_stop.name;
-      // firstArrivalName = travelData.data.routes[0].legs[0].steps[0].transit_details.arrival_stop.name;
-      // secondHeadSign = travelData.data.routes[0].legs[0].steps[stepsLength - 1].transit_details.headsign;
-      // secondDepartureName = travelData.data.routes[0].legs[0].steps[stepsLength - 1].transit_details.departure_stop.name;
-      // secondArrivalName = travelData.data.routes[0].legs[0].steps[stepsLength - 1].transit_details.arrival_stop.name;
-      // firstLineName = travelData.data.routes[0].legs[0].steps[0].transit_details.line.short_name;
-      // secondLineName = travelData.data.routes[0].legs[0].steps[stepsLength - 1].transit_details.line.short_name;
-      // firstDurationTime = travelData.data.routes[0].legs[0].steps[0].duration.text;
-      // secondDurationTime = travelData.data.routes[0].legs[0].steps[stepsLength - 1].duration.text;
-
       console.log('Rendering 1st result.ejs');
       console.log(firstColour, secondColour);
       
@@ -129,7 +131,8 @@ app.post('/', async (req, res) => {
         secondLineName: secondLineName,
         firstDurationTime: firstDurationTime,
         secondDurationTime: secondDurationTime,
-        resultMessage: resultMessage,
+        firstResultMessage: firstResultMessage,
+        secondResultMessage: secondResultMessage,
       });
     } 
     
@@ -160,7 +163,8 @@ app.post('/', async (req, res) => {
         secondLineName: null,
         firstDurationTime: firstDurationTime,
         secondDurationTime: null,
-        resultMessage: resultMessage,
+        firstResultMessage: firstResultMessage,
+        secondResultMessage: null,
       });
     }
   } 
