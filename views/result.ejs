@@ -1,62 +1,112 @@
 <%- include("header") -%>
 <div>
-    <div class="background">
-        <div class="top-container">
-            <div class="top-logo">
-                <img src="/images/tram4u-final.png" alt="tram4u logo">
-                <h1>Tram4U</h1>
-            </div>
-            <div>
-                <%- include("dropdown") -%>
-                <% if (locals.secondDepart !== null) { %>
-                    
-                    <div class="results-container">
-                        <div class="headsign">Yellow Line: Piccadilly</div>
-                        <div class="departure">
-                            <div class="departure-station">
-                                <p>Bury</p>
-                            </div>
-                            <div class="departure-time">
-                                <p style="color:<%= firstColour %>;"><span>Departure at:</span><span><%= firstDepart %></span></p>
-                                <p style="color:<%= firstColour %>;"><span>Leaving in:</span><span><%= firstDepart %></span></p>
-                            </div>
-                        </div>
-                        <div class="arrival">
-                            <div class="arrival-station">
-                                <p>Bury</p>
-                            </div>
-                            <div class="arrival-time">
-                                <p style="color:<%= firstColour %>;"><span>Arrival Time:</span><span><%= firstArrival %></span></p>
-                                <p style="color:<%= firstColour %>;"><span>Duration:</span><span><%= firstArrival %></span></p>
-                            </div>
-                        </div>
 
-                        <!-- <div class="results-container-2">
-                            <div class="headsign">Navy Line: Manchester Airport via Market Street</div>
-                            <div class="departure">
-                                <div class="departure-station">Wythenshawe Town Center</div>
-                                <div class="departure-time">
-                                    <h1 style="color:<%= secondColour %>;">2nd Departure Time: <%= secondDepart %></h1>
-                                    <h1 style="color:<%= firstColour %>;">Leaving in: ...</h1>
-                                </div>
-                            </div>
-                            <div class="arrival">
-                                <div class="arrival-station">Manchester Airport</div>
-                                <div class="arrival-time">
-                                    <h1 style="color:<%= secondColour %>;">2nd Arrival Time: <%= secondArrival %></h1>
-                                    <h1 style="color:<%= firstColour %>;">Duration: ...</h1>
-                                </div>
-                            </div>
-                    </div> -->
-  
-                <% } else { %>
-                    <div class="results">
-                        <h1 style="color:<%= firstColour %>;">Departure Time: <%= firstDepart %></h1>
-                        <h1 style="color:<%= firstColour %>;">Arrival Time: <%= firstArrival %></h1>
-                    </div>
-                <% } %>
-            </div>
+  <div class="background">
+
+    <div class="top-container">
+      <div class="top-logo">
+        <img src="/images/tram4u-final.png" alt="tram4u logo" />
+        <h1>Tram4U</h1>
+      </div>
+      <%- include("dropdown") -%> <% if (locals.secondDepart !== null) { %>
+    </div>
+
+
+    <div class="results-container">
+        <div class="headsign">Yellow Line: Piccadilly</div>
+        <div class="departure">
+          <div class="departure-station">
+            <p>Bury</p>
+          </div>
+          <div class="departure-time">
+            <p style="color: <%= firstColour %>">
+              <span>Departure at:</span><span><%= firstDepart %></span>
+            </p>
+            <p style="color: <%= firstColour %>">
+              <span>Leaving in:</span><span><%= firstDepart %></span>
+            </p>
+          </div>
+        </div>
+        <div class="arrival">
+          <div class="arrival-station">
+            <p>Bury</p>
+          </div>
+          <div class="arrival-time">
+            <p style="color: <%= firstColour %>">
+              <span>Arrival Time:</span><span><%= firstArrival %></span>
+            </p>
+            <p style="color: <%= firstColour %>">
+              <span>Duration:</span><span><%= firstArrival %></span>
+            </p>
+          </div>
         </div>
     </div>
-</div>
-<%- include("footer") -%>
+
+    <div class="results-container">
+        <div class="headsign">Navy Line: Eccles</div>
+          <div class="departure">
+            <div class="departure-station">
+              <p>Wythenshawe Town Center</p>
+            </div>
+            <div class="departure-time">
+              <p style="color: <%= firstColour %>">
+                <span>Departure at:</span><span><%= firstDepart %></span>
+              </p>
+              <p style="color: <%= firstColour %>">
+                <span>Leaving in:</span><span><%= firstDepart %></span>
+              </p>
+            </div>
+          </div>
+          <div class="arrival">
+            <div class="arrival-station">
+              <p>Wythenshawe Town Center</p>
+            </div>
+            <div class="arrival-time">
+              <p style="color: <%= firstColour %>">
+                <span>Arrival Time:</span><span><%= firstArrival %></span>
+              </p>
+              <p style="color: <%= firstColour %>">
+                <span>Duration:</span><span><%= firstArrival %></span>
+              </p>
+            </div>
+          </div>
+    </div>
+
+          <% } else { %>
+
+    <div class="results-container">
+        <div class="headsign">Yellow Line: Piccadilly</div>
+        <div class="departure">
+          <div class="departure-station">
+            <p>Bury</p>
+          </div>
+          <div class="departure-time">
+            <p style="color: <%= firstColour %>">
+              <span>Departure at:</span><span><%= firstDepart %></span>
+            </p>
+            <p style="color: <%= firstColour %>">
+              <span>Leaving in:</span><span><%= firstDepart %></span>
+            </p>
+          </div>
+        </div>
+        <div class="arrival">
+          <div class="arrival-station">
+            <p>Bury</p>
+          </div>
+          <div class="arrival-time">
+            <p style="color: <%= firstColour %>">
+              <span>Arrival Time:</span><span><%= firstArrival %></span>
+            </p>
+            <p style="color: <%= firstColour %>">
+              <span>Duration:</span><span><%= firstArrival %></span>
+            </p>
+          </div>
+        </div>
+    </div>
+    
+    <% } %>
+        </div>
+      </div>
+    
+
+    <%- include("footer") -%>
