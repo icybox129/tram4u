@@ -13,60 +13,60 @@
 
 
     <div class="results-container">
-        <div class="headsign" style="background-color: <%= firstColour %>">Yellow Line: Piccadilly</div>
+        <div class="headsign" style="background-color: <%= firstColour %>"><%= firstLineName %>: <%= firstHeadSign %></div>
         <div class="departure">
           <div class="departure-station" style="background-color: <%= firstColour %>">
-            <p>Bury</p>
+            <p><%= firstDepartureName %></p>
           </div>
           <div class="departure-time">
             <p>
               <span>Departure at:</span><span><%= firstDepart %></span>
             </p>
             <p>
-              <span>Leaving in:</span><span><%= firstDepart %></span>
+              <span>Leaving in:</span><span><%= resultMessage %></span>
             </p>
           </div>
         </div>
         <div class="arrival">
           <div class="arrival-station" style="background-color: <%= firstColour %>">
-            <p>Bury</p>
+            <p><%= firstArrivalName %></p>
           </div>
           <div class="arrival-time">
             <p>
               <span>Arrival Time:</span><span><%= firstArrival %></span>
             </p>
             <p>
-              <span>Duration:</span><span><%= firstArrival %></span>
+              <span>Duration:</span><span><%= firstDurationTime %></span>
             </p>
           </div>
         </div>
     </div>
 
     <div class="results-container">
-        <div class="headsign" style="background-color: <%= secondColour %>">Navy Line: Eccles</div>
+        <div class="headsign" style="background-color: <%= secondColour %>"><%= secondLineName %>: <%= secondHeadSign %></div>
           <div class="departure">
             <div class="departure-station" style="background-color: <%= secondColour %>">
-              <p>Wythenshawe Town Center</p>
+              <p><%= secondDepartureName %></p>
             </div>
             <div class="departure-time">
               <p>
-                <span>Departure at:</span><span><%= firstDepart %></span>
+                <span>Departure at:</span><span><%= secondDepart %></span>
               </p>
               <p>
-                <span>Leaving in:</span><span><%= firstDepart %></span>
+                <span>Leaving in:</span><span><%= secondDepart %></span>
               </p>
             </div>
           </div>
           <div class="arrival">
             <div class="arrival-station" style="background-color: <%= secondColour %>">
-              <p>Wythenshawe Town Center</p>
+              <p><%= secondArrivalName %></p>
             </div>
             <div class="arrival-time">
               <p>
-                <span>Arrival Time:</span><span><%= firstArrival %></span>
+                <span>Arrival Time:</span><span><%= secondArrival %></span>
               </p>
               <p>
-                <span>Duration:</span><span><%= firstArrival %></span>
+                <span>Duration:</span><span><%= secondDurationTime %></span>
               </p>
             </div>
           </div>
@@ -75,10 +75,10 @@
           <% } else { %>
 
     <div class="results-container">
-        <div class="headsign" style="background-color: <%= firstColour %>">Yellow Line: Piccadilly</div>
+        <div class="headsign" style="background-color: <%= firstColour %>"><%= firstLineName %>: <%= firstHeadSign %></div>
         <div class="departure">
           <div class="departure-station" style="background-color: <%= firstColour %>">
-            <p>Bury</p>
+            <p><%= firstDepartureName %></p>
           </div>
           <div class="departure-time">
             <p>
@@ -91,14 +91,14 @@
         </div>
         <div class="arrival">
           <div class="arrival-station" style="background-color: <%= firstColour %>">
-            <p>Bury</p>
+            <p><%= firstArrivalName %></p>
           </div>
           <div class="arrival-time">
             <p>
               <span>Arrival Time:</span><span><%= firstArrival %></span>
             </p>
             <p>
-              <span>Duration:</span><span><%= firstArrival %></span>
+              <span>Duration:</span><span><%= firstDurationTime %></span>
             </p>
           </div>
         </div>
