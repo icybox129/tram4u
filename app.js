@@ -161,7 +161,8 @@ app.post('/', async (req, res) => {
   
   catch (error) {
     console.error(error);
-    res.status(500).send(`Internal Server Error: ${error.message}`);
+    res.render('search.ejs')
+    // res.status(500).send(`Internal Server Error: ${error.message}`);
   }
 });
 
