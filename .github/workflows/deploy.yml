@@ -22,10 +22,9 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
+          commands: |
             cd /root/trams4u
             git pull origin main
             npm install --production
             echo "API_KEY=${{ secrets.API_KEY }}" > .env
             node app.js
-            exit 0
