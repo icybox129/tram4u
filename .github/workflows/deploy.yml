@@ -28,3 +28,4 @@ jobs:
             npm install --production
             echo "API_KEY=${{ secrets.API_KEY }}" > .env
             node app.js
+            exit 0

@@ -68,48 +68,86 @@ app.post('/', async (req, res) => {
     console.log(`Google API: ${firstDepartureTime}`)
     console.log(`Time API: ${nick}`)
 
-    function calculateTimeDifference(departureTime, comparisonTime) {
-      // Extract hours, minutes, and period (AM/PM) from the time string
-      const [timePart, period] = departureTime.split(' ');
-      const [hoursStr, minutesStr] = timePart.split(':');
+  //   function calculateTimeDifference(departureTime, comparisonTime) {
+  //     // Extract hours, minutes, and period (AM/PM) from the time string
+  //     const [timePart, period] = departureTime.split(' ');
+  //     const [hoursStr, minutesStr] = timePart.split(':');
   
-      // Convert hours to 24-hour format
-      let hours = parseInt(hoursStr);
-      if (period === 'PM' && hours !== 12) {
-          hours += 12;
-      } else if (period === 'AM' && hours === 12) {
-          hours = 0;
-      }
+  //     // Convert hours to 24-hour format
+  //     let hours = parseInt(hoursStr);
+  //     if (period === 'PM' && hours !== 12) {
+  //         hours += 12;
+  //     } else if (period === 'AM' && hours === 12) {
+  //         hours = 0;
+  //     }
   
-      // Create the moment object with the adjusted time
-      const departureMoment = moment().hour(hours).minute(parseInt(minutesStr)).second(0);
+  //     // Create the moment object with the adjusted time
+  //     const departureMoment = moment().hour(hours).minute(parseInt(minutesStr)).second(0);
   
-      // Parse comparison time using moment
-      const comparisonMoment = moment(comparisonTime, 'HH:mm');
+  //     // Parse comparison time using moment
+  //     const comparisonMoment = moment(comparisonTime, 'HH:mm');
   
-      // Calculate the time difference in minutes
-      const timeDifferenceMinutes = departureMoment.diff(comparisonMoment, 'minutes');
+  //     // Calculate the time difference in minutes
+  //     const timeDifferenceMinutes = departureMoment.diff(comparisonMoment, 'minutes');
   
-      let resultMessage;
+  //     let resultMessage;
   
-      if (timeDifferenceMinutes >= 60) {
-          const hours = Math.floor(timeDifferenceMinutes / 60);
-          const remainingMinutes = timeDifferenceMinutes % 60;
-          resultMessage = `${hours}h ${remainingMinutes} min`;
-      } else {
-          resultMessage = `${timeDifferenceMinutes} min`;
-      }
+  //     if (timeDifferenceMinutes >= 60) {
+  //         const hours = Math.floor(timeDifferenceMinutes / 60);
+  //         const remainingMinutes = timeDifferenceMinutes % 60;
+  //         resultMessage = `${hours}h ${remainingMinutes} min`;
+  //     } else {
+  //         resultMessage = `${timeDifferenceMinutes} min`;
+  //     }
   
-      return resultMessage;
-  }
+  //     return resultMessage;
+  // }
   
-  // Calculate time difference for first departure time
-  const firstResultMessage = calculateTimeDifference(firstDepartureTime, nick);
-  console.log("Time difference for first departure time:", firstResultMessage);
+  // // Calculate time difference for first departure time
+  // const firstResultMessage = calculateTimeDifference(firstDepartureTime, nick);
+  // console.log("Time difference for first departure time:", firstResultMessage);
   
-  // Calculate time difference for second departure time
-  const secondResultMessage = calculateTimeDifference(secondDepartureTime, nick);
-  console.log("Time difference for second departure time:", secondResultMessage);
+  // // Calculate time difference for second departure time
+  // const secondResultMessage = calculateTimeDifference(secondDepartureTime, nick);
+  // console.log("Time difference for second departure time:", secondResultMessage);
+
+  function calculateTimeDifference(departureTime, comparisonTime) {
+    // Parse departure time using moment
+    const departureMoment = moment(departureTime, 'hh:mm A');
+
+    // Parse comparison time using moment
+    const comparisonMoment = moment(comparisonTime, 'hh:mm A');
+
+    // If departure time is before comparison time, add a day to departure time
+    if (departureMoment.isBefore(comparisonMoment)) {
+        departureMoment.add(1, 'day');
+    }
+
+    // Calculate the time difference in minutes
+    const timeDifferenceMinutes = departureMoment.diff(comparisonMoment, 'minutes');
+
+    let resultMessage;
+
+    if (timeDifferenceMinutes >= 60) {
+        const hours = Math.floor(timeDifferenceMinutes / 60);
+        const remainingMinutes = timeDifferenceMinutes % 60;
+        resultMessage = `${hours}h ${remainingMinutes} min`;
+    } else {
+        resultMessage = `${timeDifferenceMinutes} min`;
+    }
+
+    return resultMessage;
+}
+
+// Assuming moment is imported and firstDepartureTime, secondDepartureTime, and nick are defined elsewhere
+// Calculate time difference for first departure time
+const firstResultMessage = calculateTimeDifference(firstDepartureTime, nick);
+console.log("Time difference for first departure time:", firstResultMessage);
+
+// Calculate time difference for second departure time
+const secondResultMessage = calculateTimeDifference(secondDepartureTime, nick);
+console.log("Time difference for second departure time:", secondResultMessage);
+
   
       
 
