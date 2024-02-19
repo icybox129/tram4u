@@ -70,10 +70,14 @@ app.post('/', async (req, res) => {
     console.log(`Time API: ${nick}`)
     const firstParsedTime = new Date(`2000-01-01 ${firstDepartureTime}`);
     const firstFormattedTime = firstParsedTime.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })
+    console.log(`First Parsed: ${firstParsedTime}`)
+    console.log(`First Formatted: ${firstFormattedTime}`)
  
     // Parse times using moment
     const firstMoment1 = moment(nick, 'HH:mm');
     const firstMoment2 = moment(firstFormattedTime, 'HH:mm');
+    console.log(firstMoment1)
+    console.log(firstMoment2)
   
     // Calculate the time difference in minutes
     const firstTimeDifferenceMinutes = firstMoment2.diff(firstMoment1, 'minutes');
