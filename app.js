@@ -74,8 +74,8 @@ app.post('/', async (req, res) => {
     console.log(`First Formatted: ${firstFormattedTime}`)
  
     // Parse times using moment
-    const firstMoment1 = moment(nick, 'HH:mm');
-    const firstMoment2 = moment(firstFormattedTime, 'HH:mm');
+    const firstMoment1 = moment.utc(nick, 'HH:mm');
+    const firstMoment2 = moment.utc(firstFormattedTime, 'HH:mm');
     console.log(firstMoment1)
     console.log(firstMoment2)
   
