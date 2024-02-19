@@ -64,88 +64,53 @@ app.post('/', async (req, res) => {
       firstDurationTime = travelData.data.routes[0].legs[0].steps[0].duration.text,
       secondDurationTime = travelData.data.routes[0].legs[0].steps[stepsLength - 1].duration.text;
 
-    // Assuming you have two time variables in HH:MM format
-
+    
     console.log(`Google API: ${firstDepartureTime}`)
     console.log(`Time API: ${nick}`)
-    // const firstParsedTime = new Date(`2000-01-01 ${firstDepartureTime}`);
-    // const firstFormattedTime = firstParsedTime.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })
-    // console.log(`First Parsed: ${firstParsedTime}`)
-    // console.log(`First Formatted: ${firstFormattedTime}`)
- 
-    // // Parse times using moment
-    // const firstMoment1 = moment(nick, 'HH:mm');
-    // const firstMoment2 = moment(firstFormattedTime, 'HH:mm');
-    // console.log(firstMoment1)
-    // console.log(firstMoment2)
+
+    function calculateTimeDifference(departureTime, comparisonTime) {
+      // Extract hours, minutes, and period (AM/PM) from the time string
+      const [timePart, period] = departureTime.split(' ');
+      const [hoursStr, minutesStr] = timePart.split(':');
   
-    // // Calculate the time difference in minutes
-    // const firstTimeDifferenceMinutes = firstMoment2.diff(firstMoment1, 'minutes');
+      // Convert hours to 24-hour format
+      let hours = parseInt(hoursStr);
+      if (period === 'PM' && hours !== 12) {
+          hours += 12;
+      } else if (period === 'AM' && hours === 12) {
+          hours = 0;
+      }
   
-    // let firstResultMessage;
+      // Create the moment object with the adjusted time
+      const departureMoment = moment().hour(hours).minute(parseInt(minutesStr)).second(0);
   
-    // if (firstTimeDifferenceMinutes >= 60) {
-    //   const hours = Math.floor(firstTimeDifferenceMinutes / 60);
-    //   const remainingMinutes = firstTimeDifferenceMinutes % 60;
-    //   firstResultMessage = `${hours}h ${remainingMinutes} min`;
-    // } else {
-    //   firstResultMessage = `${firstTimeDifferenceMinutes } min`;
-    // }
-
-
-    // Extract hours, minutes, and period (AM/PM) from the time string
-    const [timePart, period] = firstDepartureTime.split(' ');
-    const [hoursStr, minutesStr] = timePart.split(':');
-
-    // Convert hours to 24-hour format
-    let hours = parseInt(hoursStr);
-    if (period === 'PM' && hours !== 12) {
-        hours += 12;
-    } else if (period === 'AM' && hours === 12) {
-        hours = 0;
-    }
-
-    // Create the moment object with the adjusted time
-    const firstMoment2 = moment().hour(hours).minute(parseInt(minutesStr)).second(0);
-
-    // Parse times using moment
-    const firstMoment1 = moment(nick, 'HH:mm');
-
-    // Calculate the time difference in minutes
-    const firstTimeDifferenceMinutes = firstMoment2.diff(firstMoment1, 'minutes');
-
-    let firstResultMessage;
-
-    if (firstTimeDifferenceMinutes >= 60) {
-        const hours = Math.floor(firstTimeDifferenceMinutes / 60);
-        const remainingMinutes = firstTimeDifferenceMinutes % 60;
-        firstResultMessage = `${hours}h ${remainingMinutes} min`;
-    } else {
-        firstResultMessage = `${firstTimeDifferenceMinutes} min`;
-    }
-
-    console.log("Time difference:", firstResultMessage);
-
-
-    const secondParsedTime = new Date(`2000-01-01 ${secondDepartureTime}`);
-    const secondFormattedTime = secondParsedTime.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })
-
-    // Parse times using moment
-    const secondMoment1 = moment(nick, 'HH:mm');
-    const secondMoment2 = moment(secondFormattedTime, 'HH:mm');
+      // Parse comparison time using moment
+      const comparisonMoment = moment(comparisonTime, 'HH:mm');
   
-    // Calculate the time difference in minutes
-    const secondTimeDifferenceMinutes = secondMoment2.diff(secondMoment1, 'minutes');
+      // Calculate the time difference in minutes
+      const timeDifferenceMinutes = departureMoment.diff(comparisonMoment, 'minutes');
   
-    let secondResultMessage;
+      let resultMessage;
   
-    if (secondTimeDifferenceMinutes >= 60) {
-      const hours = Math.floor(secondTimeDifferenceMinutes / 60);
-      const remainingMinutes = secondTimeDifferenceMinutes % 60;
-      secondResultMessage = `${hours}h ${remainingMinutes} min`;
-    } else {
-      secondResultMessage = `${secondTimeDifferenceMinutes} min`;
-    }
+      if (timeDifferenceMinutes >= 60) {
+          const hours = Math.floor(timeDifferenceMinutes / 60);
+          const remainingMinutes = timeDifferenceMinutes % 60;
+          resultMessage = `${hours}h ${remainingMinutes} min`;
+      } else {
+          resultMessage = `${timeDifferenceMinutes} min`;
+      }
+  
+      return resultMessage;
+  }
+  
+  // Calculate time difference for first departure time
+  const firstResultMessage = calculateTimeDifference(firstDepartureTime, nick);
+  console.log("Time difference for first departure time:", firstResultMessage);
+  
+  // Calculate time difference for second departure time
+  const secondResultMessage = calculateTimeDifference(secondDepartureTime, nick);
+  console.log("Time difference for second departure time:", secondResultMessage);
+  
       
 
     if (stepsLength > 1) {
@@ -201,7 +166,8 @@ app.post('/', async (req, res) => {
       });
     }
   } 
-  
+
+
   catch (error) {
     console.error(error);
     res.render('search.ejs')
