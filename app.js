@@ -44,6 +44,8 @@ app.post('/', async (req, res) => {
 
     const stepsLength = travelData.data.routes[0].legs[0].steps.length;
 
+    console.log(travelData.data)
+
     let 
       firstDepartureTime = travelData.data.routes[0].legs[0].steps[0].transit_details.departure_time.text,
       firstArrivalTime = travelData.data.routes[0].legs[0].steps[0].transit_details.arrival_time.text,
@@ -64,6 +66,8 @@ app.post('/', async (req, res) => {
 
     // Assuming you have two time variables in HH:MM format
 
+    console.log(`Google API: ${firstDepartureTime}`)
+    console.log(`Time API: ${nick}`)
     const firstParsedTime = new Date(`2000-01-01 ${firstDepartureTime}`);
     const firstFormattedTime = firstParsedTime.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })
  
