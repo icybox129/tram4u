@@ -69,7 +69,7 @@ button:hover {
 .container {
   max-width: 430px;
   height: 100vh;
-  max-height: fit-content;
+  /* max-height: fit-content; */
   margin: 0 auto;
   padding: 20px;
   background-color: #ffdc44;
