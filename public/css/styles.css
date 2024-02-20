@@ -68,7 +68,7 @@ button:hover {
 
 .container {
   max-width: 430px;
-  height: calc(100vh - 130px );
+  height: calc(100vh - 110px );
   /* max-height: fit-content; */
   margin: 0 auto;
   padding: 20px;
@@ -173,7 +173,7 @@ footer {
 
 .background {
   background-image: url('/images/manchester-map-newnewnew.png');
-  height: calc(100vh - 130px );
+  height: calc(100vh - 110px );
   background-repeat: no-repeat;
   width: 375px;
   /* max-height: fit-content; */
