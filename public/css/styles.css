@@ -176,7 +176,7 @@ footer {
   height: 100vh;
   background-repeat: no-repeat;
   width: 375px;
-  max-height: fit-content;
+  /* max-height: fit-content; */
   margin: 0 auto;
   background-size: cover;
   background-position: center;
