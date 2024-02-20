@@ -11,102 +11,139 @@
       <%- include("dropdown") -%> <% if (locals.secondDepart !== null) { %>
     </div>
 
-
-    <div class="results-container">
-        <div class="headsign" style="background-color: <%= firstColour %>"><p><%= firstLineName %>: <%= firstHeadSign %></p></div>
-        <div class="departure">
-          <div class="departure-station" style="background-color: <%= firstColour %>">
-            <p><%= firstDepartureName %></p>
-          </div>
-          <div class="departure-time">
-            <p>
-              <span>Departure at:</span><span><%= firstDepart %></span>
-            </p>
-            <p>
-              <span>Leaving in:</span><span><%= firstResultMessage %></span>
-            </p>
-          </div>
-        </div>
-        <div class="arrival">
-          <div class="arrival-station" style="background-color: <%= firstColour %>">
-            <p><%= firstArrivalName %></p>
-          </div>
-          <div class="arrival-time">
-            <p>
-              <span>Arrival Time:</span><span><%= firstArrival %></span>
-            </p>
-            <p>
-              <span>Duration:</span><span><%= firstDurationTime %></span>
-            </p>
-          </div>
-        </div>
-    </div>
-
-    <div class="results-container">
-        <div class="headsign" style="background-color: <%= secondColour %>"><%= secondLineName %>: <%= secondHeadSign %></div>
-          <div class="departure">
-            <div class="departure-station" style="background-color: <%= secondColour %>">
-              <p><%= secondDepartureName %></p>
-            </div>
-            <div class="departure-time">
-              <p>
-                <span>Departure at:</span><span><%= secondDepart %></span>
-              </p>
-              <p>
-                <span>Leaving in:</span><span><%= secondResultMessage %></span>
-              </p>
-            </div>
-          </div>
-          <div class="arrival">
-            <div class="arrival-station" style="background-color: <%= secondColour %>">
-              <p><%= secondArrivalName %></p>
-            </div>
-            <div class="arrival-time">
-              <p>
-                <span>Arrival Time:</span><span><%= secondArrival %></span>
-              </p>
-              <p>
-                <span>Duration:</span><span><%= secondDurationTime %></span>
-              </p>
-            </div>
-          </div>
-    </div>
-
-          <% } else { %>
-
-    <div class="results-container">
-        <div class="headsign" style="background-color: <%= firstColour %>"><%= firstLineName %>: <%= firstHeadSign %></div>
-        <div class="departure">
-          <div class="departure-station" style="background-color: <%= firstColour %>">
-            <p><%= firstDepartureName %></p>
-          </div>
-          <div class="departure-time">
-            <p>
-              <span>Departure at:</span><span><%= firstDepart %></span>
-            </p>
-            <p>
-              <span>Leaving in:</span><span><%= firstResultMessage %></span>
-            </p>
-          </div>
-        </div>
-        <div class="arrival">
-          <div class="arrival-station" style="background-color: <%= firstColour %>">
-            <p><%= firstArrivalName %></p>
-          </div>
-          <div class="arrival-time">
-            <p>
-              <span>Arrival Time:</span><span><%= firstArrival %></span>
-            </p>
-            <p>
-              <span>Duration:</span><span><%= firstDurationTime %></span>
-            </p>
-          </div>
-        </div>
+    <!-- RESULT BOX 1 -->
+    <div class="results-container-1" style="background-color: <%= firstColour %>">
+      <p class="p-results"><%= firstLineName %>: <%= firstHeadSign %></p>
     </div>
     
-    <% } %>
+    <div class="results-container-2">
+      
+      <div class="station-name-container-2" style="background-color: <%= firstColour %>">
+        <div class="station-name">
+          <p class="p-name"><%= firstDepartureName %></p>
+        </div>
+      </div>
+
+      <div class="time">
+        <div class="time1">
+          <p class="p-top"><span>Departure at: </span><span><%= firstDepart %></span></p>
+        </div>
+        <div class="time2">
+          <p class="p-bottom"><span>Leaving in: </span><span><%= firstResultMessage %></span></p>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="results-container-3">
+
+      <div class="station-name-container-3" style="background-color: <%= firstColour %>">
+        <div class="station-name">
+          <p class="p-name"><%= firstArrivalName %></p>
+        </div>
+      </div>
+
+      <div class="time">
+        <div class="time1">
+          <p class="p-top"><span>Arrival Time:</span><span><%= firstArrival %></span></p>
+        </div>
+        <div class="time2">
+          <p class="p-bottom"><span>Duration:</span><span><%= firstDurationTime %></span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RESULT BOX 2 -->
+    <div class="results-container-1" style="background-color: <%= secondColour %>">
+      <p class="p-results"><%= secondLineName %>: <%= secondHeadSign %></p>
+    </div>
+    
+    <div class="results-container-2">
+      
+      <div class="station-name-container-2" style="background-color: <%= secondColour %>">
+        <div class="station-name">
+          <p class="p-name"><%= secondDepartureName %></p>
+        </div>
+      </div>
+
+      <div class="time">
+        <div class="time1">
+          <p class="p-top"><span>Departure at: </span><span><%= secondDepart %></span></p>
+        </div>
+        <div class="time2">
+          <p class="p-bottom"><span>Leaving in: </span><span><%= secondResultMessage %></span></p>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="results-container-3">
+
+      <div class="station-name-container-3" style="background-color: <%= secondColour %>">
+        <div class="station-name">
+          <p class="p-name"><%= secondArrivalName %></p>
+        </div>
+      </div>
+
+      <div class="time">
+        <div class="time1">
+          <p class="p-top"><span>Arrival Time:</span><span><%= secondArrival %></span></p>
+        </div>
+        <div class="time2">
+          <p class="p-bottom"><span>Duration:</span><span><%= secondDurationTime %></span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <% } else { %>
+
+      <!-- ONLY ONE RESULT BOX-->
+      <div class="results-container-1-unique" style="background-color: <%= firstColour %>">
+        <p class="p-results-unique"><%= firstLineName %>: <%= firstHeadSign %></p>
+      </div>
+      
+      <div class="results-container-2-unique">
+        
+        <div class="station-name-container-2-unique" style="background-color: <%= firstColour %>">
+          <div class="station-name-unique">
+            <p class="p-name-unique"><%= firstDepartureName %></p>
+          </div>
+        </div>
+  
+        <div class="time-unique">
+          <div class="time1-unique">
+            <p class="p-top-unique"><span>Departure at: </span><span><%= firstDepart %></span></p>
+          </div>
+          <div class="time2-unique">
+            <p class="p-bottom-unique"><span>Leaving in: </span><span><%= firstResultMessage %></span></p>
+          </div>
+        </div>
+  
+      </div>
+      
+      <div class="results-container-3-unique">
+  
+        <div class="station-name-container-3-unique" style="background-color: <%= firstColour %>">
+          <div class="station-name-unique">
+            <p class="p-name-unique"><%= firstArrivalName %></p>
+          </div>
+        </div>
+  
+        <div class="time-unique">
+          <div class="time1-unique">
+            <p class="p-top-unique"><span>Arrival Time:</span><span><%= firstArrival %></span></p>
+          </div>
+          <div class="time2-unique">
+            <p class="p-bottom-unique"><span>Duration:</span><span><%= firstDurationTime %></span></p>
+          </div>
+        </div>
+  
+      </div>
+    
+      <% } %>
         </div>
       </div>
     
-
     <%- include("footer") -%>
