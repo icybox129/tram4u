@@ -25,7 +25,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* Search page */
@@ -172,16 +172,19 @@ footer {
 }
 
 .background {
-  background-image: url('/images/manchester-map-newnew.png');
+  background-image: url('/images/manchester-map-newnewnew.png');
   height: 100vh;
   background-repeat: no-repeat;
-  max-width: 375px;
+  width: 375px;
   max-height: fit-content;
   margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .results-container {
-  height: 166px;
+  height: auto;
   width: 100%;
   max-width: 300px;
   margin: 30px auto 0;
@@ -197,7 +200,7 @@ footer {
   cursor: pointer;
   font-family: monospace;
   font-size: 12px;
-  line-height: 36px;
+  line-height: 25px;
 }
 
 .headsign {
@@ -216,6 +219,7 @@ footer {
   padding: 0;
   border-bottom: #141F23 solid 1px;
   width: 100%;
+  height: auto;
 }
 
 .arrival {
@@ -225,6 +229,7 @@ footer {
   margin: 0;
   padding: 0;
   width: 100%;
+  height: auto;
 }
 
 .departure-station {
@@ -279,23 +284,186 @@ footer {
 }
 
 
-@media only screen and (max-width: 1200px) {
-  .container-flex {
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-between;
-  }
 
-  .logo {
-    font-size: 20px;
-  }
-
-  .item {
-    width: 100%;
-    margin: 10px 0;
-  }
+/* TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST */
+.results-container-1 {
+  /* background-color: rosybrown; */
+  width: 80%;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  margin: auto;
+  margin-top: 50px;
+  color: white;
+  text-shadow: black 0px 0px 3px;
 }
 
+.p-results {
+  font-size: 15px;
+  font-family: monospace;
+  padding: 5px 0 5px 0;
+}
+
+
+
+
+.results-container-2 {
+  background-color: white;
+  display: flex;
+  width: 80%;
+  text-align: center;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin: auto;
+  height: auto; /* NEED TO SPECIFY A HEIGH */
+}
+
+.station-name-container-2 {
+  background-color: yellow;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid;
+  color: white;
+  text-shadow: black 0px 0px 3px;
+}
+
+.p-name {
+  font-size: 13px;
+  font-family: monospace;
+}
+
+.time{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+
+.p-top, .p-bottom {
+  font-size: 12px;
+  font-family: monospace;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+}
+
+
+
+
+.results-container-3{
+  background-color: white;
+  display: flex;
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  height: auto; /* NEED TO SPECIFY A HEIGH */
+  border-radius: 0 0 5px 5px;
+}
+
+.station-name-container-3 {
+  background-color: greenyellow;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid;
+  border-radius: 0 0 0 5px;
+  color: white;
+  text-shadow: black 0px 0px 3px;
+}
+
+
+/* UNIQUE BOX */
+.results-container-1-unique {
+  /* background-color: rosybrown; */
+  width: 90%;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  margin: auto;
+  margin-top: 50px;
+  color: white;
+  text-shadow: black 0px 0px 3px;
+}
+
+.p-results-unique {
+  font-size: 15px;
+  font-family: monospace;
+  padding: 5px 0 5px 0;
+}
+
+
+
+
+.results-container-2-unique {
+  background-color: white;
+  display: flex;
+  width: 90%;
+  text-align: center;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin: auto;
+  height: auto; /* NEED TO SPECIFY A HEIGH */
+}
+
+.station-name-container-2-unique {
+  background-color: yellow;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid;
+  color: white;
+  text-shadow: black 0px 0px 3px;
+}
+
+.p-name-unique {
+  font-size: 13px;
+  font-family: monospace;
+}
+
+.time-unique {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+
+.p-top-unique, .p-bottom-unique {
+  font-size: 12px;
+  font-family: monospace;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+}
+
+
+
+
+.results-container-3-unique {
+  background-color: white;
+  display: flex;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+  height: auto; /* NEED TO SPECIFY A HEIGH */
+  border-radius: 0 0 5px 5px;
+}
+
+.station-name-container-3-unique {
+  background-color: greenyellow;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid;
+  border-radius: 0 0 0 5px;
+  color: white;
+  text-shadow: black 0px 0px 3px;
+}
+
+
+/* FIXING SCREEN HEIGH */
 @media only screen and (max-height: 610px) {
   .logo {
     height: 250px;
@@ -337,6 +505,67 @@ footer {
     display: flex;
     flex-direction: column;
     margin: 5px;
+    width: 100%;
+  }
+}
+
+/* FIXING SCREEN WIDTH */
+
+/* @media only screen and (max-width: 1200px) {
+  .container-flex {
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .item {
+    width: 100%;
+    margin: 10px 0;
+  }
+} */
+
+@media (max-width: 391px) and (max-height: 667px) {
+  .search-test{
+    height: 25px;
+  }
+
+  .top-button-small {
+    display: none;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top-button {
+    display: flex;
+    height: 35px;
+  }
+
+  .top-logo {
+    height: 50px;
+  }
+
+  .top-logo img {
+    height: 50px;
+  }
+
+  .top-logo h1 {
+    font-size: 20px;
+  }
+
+  .column {
+    margin: 1px;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .background {
     width: 100%;
   }
 }
