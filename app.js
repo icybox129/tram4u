@@ -44,7 +44,6 @@ app.post('/', async (req, res) => {
 
     const stepsLength = travelData.data.routes[0].legs[0].steps.length;
 
-    console.log(travelData.data)
 
     let 
       firstDepartureTime = travelData.data.routes[0].legs[0].steps[0].transit_details.departure_time.text,
@@ -67,6 +66,10 @@ app.post('/', async (req, res) => {
     
     console.log(`Google API: ${firstDepartureTime}`)
     console.log(`Time API: ${nick}`)
+
+    console.log(firstDepartureName)
+    console.log(secondDepartureName)
+
 
   //   function calculateTimeDifference(departureTime, comparisonTime) {
   //     // Extract hours, minutes, and period (AM/PM) from the time string
@@ -137,19 +140,17 @@ app.post('/', async (req, res) => {
     }
 
     return resultMessage;
-}
+  }
 
-// Assuming moment is imported and firstDepartureTime, secondDepartureTime, and nick are defined elsewhere
-// Calculate time difference for first departure time
-const firstResultMessage = calculateTimeDifference(firstDepartureTime, nick);
-console.log("Time difference for first departure time:", firstResultMessage);
+    // Assuming moment is imported and firstDepartureTime, secondDepartureTime, and nick are defined elsewhere
+    // Calculate time difference for first departure time
+    const firstResultMessage = calculateTimeDifference(firstDepartureTime, nick);
+    console.log("Time difference for first departure time:", firstResultMessage);
 
-// Calculate time difference for second departure time
-const secondResultMessage = calculateTimeDifference(secondDepartureTime, nick);
-console.log("Time difference for second departure time:", secondResultMessage);
+    // Calculate time difference for second departure time
+    const secondResultMessage = calculateTimeDifference(secondDepartureTime, nick);
+    console.log("Time difference for second departure time:", secondResultMessage);
 
-  
-      
 
     if (stepsLength > 1) {
       
