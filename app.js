@@ -70,50 +70,6 @@ app.post('/', async (req, res) => {
     console.log(firstDepartureName)
     console.log(secondDepartureName)
 
-
-  //   function calculateTimeDifference(departureTime, comparisonTime) {
-  //     // Extract hours, minutes, and period (AM/PM) from the time string
-  //     const [timePart, period] = departureTime.split(' ');
-  //     const [hoursStr, minutesStr] = timePart.split(':');
-  
-  //     // Convert hours to 24-hour format
-  //     let hours = parseInt(hoursStr);
-  //     if (period === 'PM' && hours !== 12) {
-  //         hours += 12;
-  //     } else if (period === 'AM' && hours === 12) {
-  //         hours = 0;
-  //     }
-  
-  //     // Create the moment object with the adjusted time
-  //     const departureMoment = moment().hour(hours).minute(parseInt(minutesStr)).second(0);
-  
-  //     // Parse comparison time using moment
-  //     const comparisonMoment = moment(comparisonTime, 'HH:mm');
-  
-  //     // Calculate the time difference in minutes
-  //     const timeDifferenceMinutes = departureMoment.diff(comparisonMoment, 'minutes');
-  
-  //     let resultMessage;
-  
-  //     if (timeDifferenceMinutes >= 60) {
-  //         const hours = Math.floor(timeDifferenceMinutes / 60);
-  //         const remainingMinutes = timeDifferenceMinutes % 60;
-  //         resultMessage = `${hours}h ${remainingMinutes} min`;
-  //     } else {
-  //         resultMessage = `${timeDifferenceMinutes} min`;
-  //     }
-  
-  //     return resultMessage;
-  // }
-  
-  // // Calculate time difference for first departure time
-  // const firstResultMessage = calculateTimeDifference(firstDepartureTime, nick);
-  // console.log("Time difference for first departure time:", firstResultMessage);
-  
-  // // Calculate time difference for second departure time
-  // const secondResultMessage = calculateTimeDifference(secondDepartureTime, nick);
-  // console.log("Time difference for second departure time:", secondResultMessage);
-
   function calculateTimeDifference(departureTime, comparisonTime) {
     // Parse departure time using moment
     const departureMoment = moment(departureTime, 'hh:mm A');
