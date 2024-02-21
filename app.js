@@ -1,46 +1,41 @@
-// Import necessary modules
 import express from 'express';
 import axios from 'axios';
 import dotenv from 'dotenv';
 import moment from 'moment';
 
-// Configure environment variables
 dotenv.config();
 
-// Set up express app
-const port = 3000;
+const port = 80;
 const app = express();
 
-// Retrieve API key from environment variables
 const apiKey = process.env.API_KEY;
 
-// Set view engine and middleware
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Route for the homepage
 app.get('/', async (req, res) => {
   res.render('index.ejs');
 });
 
-// Route for the search page
 app.get('/search', async (req, res) => {
   res.render('search.ejs');
 });
 
-// Route for handling the form submission
 app.post('/', async (req, res) => {
   try {
     console.log('Received POST request');
     const origin = req.body.startingLocation;
+    
     const destination = req.body.destinationLocation;
-
+    
+    
     const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${apiKey}&mode=transit&transit_mode=tram`;
+    
     const travelData = await axios.get(url);
     
-
     const urlCurrentTime = `https://timeapi.io/api/Time/current/zone?timeZone=Europe/London`;
     
     const currentTime = await axios.get(urlCurrentTime);
@@ -48,6 +43,7 @@ app.post('/', async (req, res) => {
     const nick = currentTime.data.time;
 
     const stepsLength = travelData.data.routes[0].legs[0].steps.length;
+
 
     let 
       firstDepartureTime = travelData.data.routes[0].legs[0].steps[0].transit_details.departure_time.text,
@@ -66,12 +62,6 @@ app.post('/', async (req, res) => {
       secondLineName = travelData.data.routes[0].legs[0].steps[stepsLength - 1].transit_details.line.short_name,
       firstDurationTime = travelData.data.routes[0].legs[0].steps[0].duration.text,
       secondDurationTime = travelData.data.routes[0].legs[0].steps[stepsLength - 1].duration.text;
-    
-    // Trim text inside parentheses
-    firstArrivalName = firstArrivalName.replace(/\s*\([^)]*\)/, '');
-    firstDepartureName = firstDepartureName.replace(/\s*\([^)]*\)/, '');
-    secondArrivalName = secondArrivalName.replace(/\s*\([^)]*\)/, '');
-    secondDepartureName = secondDepartureName.replace(/\s*\([^)]*\)/, '');
 
     
     console.log(`Google API: ${firstDepartureTime}`)
@@ -81,7 +71,7 @@ app.post('/', async (req, res) => {
     console.log(secondDepartureName)
 
   function calculateTimeDifference(departureTime, comparisonTime) {
-    // Parse departure time using moment
+    // Parse departure time using momentg
     const departureMoment = moment(departureTime, 'hh:mm A');
 
     // Parse comparison time using moment
@@ -180,7 +170,7 @@ app.post('/', async (req, res) => {
   }
 });
 
-// Start the server
+
 app.listen(port, function () {
   console.log(`Sever is running on ${port}. Press CTRL + C to shutdown. http://localhost:3000/`);
 });
