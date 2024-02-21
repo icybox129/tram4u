@@ -5,7 +5,7 @@ import moment from 'moment';
 
 dotenv.config();
 
-const port = 80;
+const port = 3000;
 const app = express();
 
 const apiKey = process.env.API_KEY;
